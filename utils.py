@@ -677,7 +677,7 @@ async def send_all(bot, userid, files, ident):
             )
         return 'fsub'
     
-    if IS_VERIFY and not await check_verification(bot, userid):
+    if not await db.has_premium_access(userid) and not await check_verification(bot, userid):
         btn = [[
             InlineKeyboardButton("Vᴇʀɪғʏ", url=await get_token(bot, userid, f"https://telegram.me/{temp.U_NAME}?start=", 'send_all')),
             InlineKeyboardButton("Hᴏᴡ Tᴏ Vᴇʀɪғʏ", url=HOW_TO_VERIFY)
