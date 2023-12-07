@@ -77,7 +77,7 @@ async def give_premium_cmd_handler(client, message):
     else:
         await message.reply_text("<b>Cᴏᴍᴍᴀɴᴅ Iɴᴄᴏᴍᴘʟᴇᴛᴇ...</b>")
 
-@Client.on_message(filters.private & filters.command("plans"))
+@Client.on_message(filters.private & filters.command("plan"))
 async def allplans(bot, message):
     btn = [[
             InlineKeyboardButton("❗ Bᴜʏ Pʀᴇᴍɪᴜᴍ Pʟᴀɴ / Sᴇɴᴅ Sᴄʀᴇᴇɴsʜᴏᴛ ❗", url="t.me/J_shree_ram")
