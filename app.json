@@ -20,14 +20,17 @@
     "env": {
         "BOT_TOKEN": {
             "description": "Your bot token.",
+"value":"6150499184:AAH-fL4GOz0iNelPKl7OYeKtf86CgHJuDQg",
             "required": true
         },
         "API_ID": {
             "description": "Get this value from https://my.telegram.org",
+"value":"24579842",
             "required": true
         },
         "API_HASH": {
             "description": "Get this value from https://my.telegram.org",
+"value":"ec6105bf1a02c98f837300546dc341d1",
             "required": true
         },
         "CHANNELS": {
@@ -44,6 +47,7 @@
         },
         "LOG_CHANNEL": {
             "description": "Bot Logs,Give a channel id with -100xxxxxxx",
+"value":"-1001939252420",
             "required": true
         },
         "AUTH_USERS": {
@@ -75,7 +79,7 @@
     "formation": {
         "worker": {
             "quantity": 1,
-            "size": "eco"
+            "size": "basic"
         }
     }
 }
