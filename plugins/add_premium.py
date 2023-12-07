@@ -77,10 +77,10 @@ async def give_premium_cmd_handler(client, message):
     else:
         await message.reply_text("<b>Cᴏᴍᴍᴀɴᴅ Iɴᴄᴏᴍᴘʟᴇᴛᴇ...</b>")
 
-@Client.on_message(filters.private & filters.command("plan"))
+@Client.on_message(filters.private & filters.command("plans"))
 async def allplans(bot, message):
     btn = [[
-            InlineKeyboardButton("❗ Bᴜʏ Pʀᴇᴍɪᴜᴍ Pʟᴀɴ / Sᴇɴᴅ Sᴄʀᴇᴇɴsʜᴏᴛ ❗", url="t.me/J_shree_ram")
+            InlineKeyboardButton("❗ Bᴜʏ Pʀᴇᴍɪᴜᴍ Pʟᴀɴ / Sᴇɴᴅ Sᴄʀᴇᴇɴsʜᴏᴛ ❗", callback_data="kushal")
           ]]
     await message.reply_photo(
         photo="https://graph.org/file/0b88dee3a5e6a7fb32505.jpg",
