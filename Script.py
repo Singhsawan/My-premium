@@ -13,7 +13,7 @@ Hᴇʀᴇ Is Tʜᴇ Hᴇʟᴘ Fᴏʀ Mʏ Cᴏᴍᴍᴀɴᴅs.</b>"""
 ✯ Bᴏᴛ Sᴇʀᴠᴇʀ: <a href='https://app.koyeb.com/'>Kᴏʏᴇʙ</a>
 ✯ Bᴜɪʟᴅ Sᴛᴀᴛᴜs: offline</b>"""
 
-    SOURCE_TXT = """<b>Not Free...🙄\nContect - @Pirates_King_Luffy</b>"""
+    SOURCE_TXT = """<b>This Repo is Not Free...🙄\nContect - @Pirates_King_Luffy</b>"""
 
 
     KUSHAL_TXT = """ 
