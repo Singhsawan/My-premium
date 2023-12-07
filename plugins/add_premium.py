@@ -80,10 +80,10 @@ async def give_premium_cmd_handler(client, message):
 @Client.on_message(filters.private & filters.command("plans"))
 async def allplans(bot, message):
     btn = [[
-            InlineKeyboardButton("❗ Bᴜʏ Pʀᴇᴍɪᴜᴍ Pʟᴀɴ / Sᴇɴᴅ Sᴄʀᴇᴇɴsʜᴏᴛ ❗", callback_data="check")
+            InlineKeyboardButton("❤️ About Premium ❤️", callback_data="check")
           ]]
     await message.reply_photo(
-        photo="https://graph.org/file/0b88dee3a5e6a7fb32505.jpg",
-        caption="premium plans\n\n1 month plan\n3 month plan\n6 month plan",
+        photo="https://graph.org/file/18154fad06450efdbc2a9.jpg",
+        caption="<b>🔥 ᴘʀᴇᴍɪᴜᴍ ғᴇᴀᴛᴜʀᴇs 🔥\n\n➻ ɴᴏ ɴᴇᴇᴅ ᴛᴏ ᴠᴇʀɪғʏ\n➻ ᴅɪʀᴇᴄᴛ ғɪʟᴇs\n➻ ᴀᴅ-ғʀᴇᴇ ᴇxᴘᴇʀɪᴇɴᴄᴇ\n➻ ʜɪɢʜ-sᴘᴇᴇᴅ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ\n➻ ᴜɴʟɪᴍɪᴛᴇᴅ ᴍᴏᴠɪᴇs / sᴇʀɪᴇs\n➻ ғᴜʟʟ ᴀᴅᴍɪɴ sᴜᴘᴘᴏʀᴛ\n\n➻ वेरिफाई नई करना होगा\n➻ डायरेक्ट मूवी फाइल\n➻ ऑनलाइन स्ट्रीम लिंक\n➻ फास्ट डाउनलोड लिंक\n➻ ऐडमिन कि तरफ से पूरा सपोर्ट\n➻ Req Complete in 1D\n\n💥 70 हजार मूवी वाला चेनल भी मिलेगा....✅\n\n👇 ᴄʜᴀᴄᴋ ᴀʟʟ ᴘʟᴀɴꜱ 👇</b>",
         reply_markup=InlineKeyboardMarkup(btn)
     )
