@@ -80,7 +80,7 @@ async def give_premium_cmd_handler(client, message):
 @Client.on_message(filters.private & filters.command("plans"))
 async def allplans(bot, message):
     btn = [[
-            InlineKeyboardButton("❤️ About Premium ❤️", callback_data="check")
+            InlineKeyboardButton("ᴄʜᴀᴄᴋ ᴘʟᴀɴꜱ", callback_data="check")
           ]]
     await message.reply_photo(
         photo="https://graph.org/file/18154fad06450efdbc2a9.jpg",
