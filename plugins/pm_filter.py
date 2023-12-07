@@ -1244,7 +1244,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('ᴘʟᴀɴ-𝟸', callback_data='plan2'), 
             InlineKeyboardButton('ᴘʟᴀɴ-𝟹', callback_data='plan3') 
         ],[
-            InlineKeyboardButton('<————«« Back »»————>', callback_data='check'), 
+            InlineKeyboardButton('<————«« Back »»————>', callback_data='kushal'), 
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -1269,7 +1269,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "plan1":
         buttons = [[
             InlineKeyboardButton('sᴇɴᴅ sᴄʀᴇᴇɴsʜᴏᴛ', url="https://t.me/pirates_king_luffy"), 
-            InlineKeyboardButton('🎁 ᴄʜᴇᴄᴋ ᴘʟᴀɴs 🎁', callback_data='check')
+            InlineKeyboardButton('ᴄʜᴇᴄᴋ ᴘʟᴀɴs', callback_data='check')
         ],[
             InlineKeyboardButton('ʜᴏᴡ ɪᴛs ᴡᴏʀᴋ', url="https://t.me/"),
             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='start')
@@ -1297,7 +1297,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "plan2":
         buttons = [[
             InlineKeyboardButton('sᴇɴᴅ sᴄʀᴇᴇɴsʜᴏᴛ', url="https://t.me/pirates_king_luffy"), 
-            InlineKeyboardButton('🎁 ᴄʜᴇᴄᴋ ᴘʟᴀɴs 🎁', callback_data='check')
+            InlineKeyboardButton('ᴄʜᴇᴄᴋ ᴘʟᴀɴs', callback_data='check')
         ],[
             InlineKeyboardButton('ʜᴏᴡ ɪᴛs ᴡᴏʀᴋ', url="https://t.me/"),
             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='start')             
@@ -1325,7 +1325,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "plan3":
         buttons = [[
             InlineKeyboardButton('sᴇɴᴅ sᴄʀᴇᴇɴsʜᴏᴛ', url="https://t.me/pirates_king_luffy"), 
-            InlineKeyboardButton('🎁 ᴄʜᴇᴄᴋ ᴘʟᴀɴs 🎁', callback_data='check')
+            InlineKeyboardButton('ᴄʜᴇᴄᴋ ᴘʟᴀɴs', callback_data='check')
         ],[
             InlineKeyboardButton('⇋ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ⇋', callback_data='start')
         ]]
