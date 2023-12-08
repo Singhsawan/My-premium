@@ -22,8 +22,8 @@ CACHE_TIME = int(environ.get('CACHE_TIME', 300))
 USE_CAPTION_FILTER = is_enabled((environ.get('USE_CAPTION_FILTER', 'True')), True)
 
 PICS = (environ.get('PICS', 'https://graph.org/file/f1d04a2c0b18d9492564b.jpg')).split()
-NOR_IMG = environ.get("NOR_IMG", "")
-MELCOW_VID = environ.get("MELCOW_VID", "")
+NOR_IMG = environ.get("NOR_IMG", "https://graph.org/file/f1d04a2c0b18d9492564b.jpg")
+MELCOW_VID = environ.get("MELCOW_VID", "https://graph.org/file/f1d04a2c0b18d9492564b.jpg")
 SPELL_IMG = environ.get("SPELL_IMG", "https://graph.org/file/f1d04a2c0b18d9492564b.jpg")
 
 # Admins, Channels & Users
