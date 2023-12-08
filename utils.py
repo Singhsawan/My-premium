@@ -681,7 +681,9 @@ async def send_all(bot, userid, files, ident):
         btn = [[
             InlineKeyboardButton("Vᴇʀɪғʏ", url=await get_token(bot, userid, f"https://telegram.me/{temp.U_NAME}?start=", 'send_all')),
             InlineKeyboardButton("Hᴏᴡ Tᴏ Vᴇʀɪғʏ", url=HOW_TO_VERIFY)
-        ]]
+        ],[
+            InlineKeyboardButton("🔥 ᴜɴʟᴏᴄᴋ ᴘʀᴇᴍɪᴜᴍ 🔥", callback_data="kushal")
+          ]]
         await bot.send_message(
             chat_id=userid,
             text="<b>हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 15 second Bro 🥲\n\nAfter Get Unlimited Movies...✅\n\n⇋⇋⇋⇋⇋⇋⇋⇋⇋⇋⇋⇋⇋⇋\n\nअगर रोज रोज वेरिफिकेशन नई करना है\nतो /plans पर क्लिक कर के premium खरीद ले...।\n(इस से वेरिफिकेशन नई करना पड़ेगा)</b>",
