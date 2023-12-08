@@ -1,6 +1,6 @@
 class script(object):
     START_TXT = """<b>
-I Am <a href=https://t.me/{}>{}</a>, I Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇs.</b>"""
+I Am Minato, I Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇs.</b>"""
 
     HELP_TXT = """<b>Hᴇʏ {}
 Hᴇʀᴇ Is Tʜᴇ Hᴇʟᴘ Fᴏʀ Mʏ Cᴏᴍᴍᴀɴᴅs.</b>"""
