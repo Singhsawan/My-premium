@@ -266,7 +266,7 @@ async def start(client, message):
                     InlineKeyboardButton("Vᴇʀɪғʏ", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start=", file_id)),
                     InlineKeyboardButton("Hᴏᴡ Tᴏ Vᴇʀɪғʏ", url=HOW_TO_VERIFY)
                 ],[
-            InlineKeyboardButton("🔥 ᴜɴʟᴏᴄᴋ ᴘʀᴇᴍɪᴜᴍ 🔥", url="https://t.me/TheHappyHourBot?start")
+            InlineKeyboardButton("🔥 ᴜɴʟᴏᴄᴋ ᴘʀᴇᴍɪᴜᴍ 🔥", url="https://t.me/{temp.U_NAME}?start=TheHappyHour")
           ]]
                 await message.reply_text(
                     text="<b>हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 15 second Friends 🥲\n\nAfter Get Unlimited Movies...✅\n\n⇨⇦⇨⇦⇨⇦⇨⇦⇨⇦⇨⇦⇨⇦\n\nअगर रोज रोज वेरिफिकेशन नई करना है\nतो /plans पर क्लिक कर के premium खरीद ले...।\n(इस से वेरिफिकेशन नई करना पड़ेगा)</b>",
@@ -319,7 +319,7 @@ async def start(client, message):
             InlineKeyboardButton("Vᴇʀɪғʏ", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start=", file_id)),
             InlineKeyboardButton("Hᴏᴡ Tᴏ Vᴇʀɪғʏ", url=HOW_TO_VERIFY)
         ],[
-            InlineKeyboardButton("🔥 ᴜɴʟᴏᴄᴋ ᴘʀᴇᴍɪᴜᴍ 🔥", url="https://t.me/TheHappyHourBot?start")
+            InlineKeyboardButton("🔥 ᴜɴʟᴏᴄᴋ ᴘʀᴇᴍɪᴜᴍ 🔥", url="https://t.me/{temp.U_NAME}?start=TheHappyHour")
           ]]
         await message.reply_text(
             text="<b>हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 15 second Friends 🥲\n\nAfter Get Unlimited Movies...✅\n\n⇨⇦⇨⇦⇨⇦⇨⇦⇨⇦⇨⇦⇨⇦\n\nअगर रोज रोज वेरिफिकेशन नई करना है\nतो /plans पर क्लिक कर के premium खरीद ले...।\n(इस से वेरिफिकेशन नई करना पड़ेगा)</b>",
