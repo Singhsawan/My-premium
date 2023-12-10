@@ -146,9 +146,9 @@ async def start(client, message):
                     InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton('Watch Online/ Fast Download', callback_data=f'gen_stream_link:{file_id}'),
+                                InlineKeyboardButton('🌈 Wᴀᴛᴄʜ Oɴʟɪɴᴇ / Fᴀꜱᴛ Dᴏᴡɴʟᴏᴀᴅ 🌈', callback_data=f'gen_stream_link:{file_id}'),
                             ],[
-                                InlineKeyboardButton("✨ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ✨", url="https://t.me/i_Movieee")
+                                InlineKeyboardButton("✨ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ✨", url="https://t.me/The_Happy_Hours")
                             ]
                         ]
                     )
@@ -156,7 +156,7 @@ async def start(client, message):
                     else InlineKeyboardMarkup(
                         [
                         [
-                          InlineKeyboardButton("✨ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ✨", url="https://t.me/i_Movieee")
+                          InlineKeyboardButton("✨ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ✨", url="https://t.me/The_Happy_Hours")
                          ]
                         ]
                     )
@@ -174,9 +174,9 @@ async def start(client, message):
                     InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton('Watch Online/ Fast Download', callback_data=f'gen_stream_link:{file_id}'),
+                                InlineKeyboardButton('🌈 Wᴀᴛᴄʜ Oɴʟɪɴᴇ / Fᴀꜱᴛ Dᴏᴡɴʟᴏᴀᴅ 🌈', callback_data=f'gen_stream_link:{file_id}'),
                             ],[
-                                InlineKeyboardButton("✨ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ✨", url="https://t.me/i_Movieee")
+                                InlineKeyboardButton("✨ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ✨", url="https://t.me/The_Happy_Hours")
                             ]
                         ]
                     )
@@ -184,7 +184,7 @@ async def start(client, message):
                     else InlineKeyboardMarkup(
                         [
                         [
-                          InlineKeyboardButton("✨ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ✨", url="https://t.me/i_Movieee")
+                          InlineKeyboardButton("✨ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ✨", url="https://t.me/The_Happy_Hours")
                          ]
                         ]
                     )
@@ -316,12 +316,12 @@ async def start(client, message):
                     InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton('Watch Online/ Fast Download', callback_data=f'gen_stream_link:{file_id}')
+                                InlineKeyboardButton('🌈 Wᴀᴛᴄʜ Oɴʟɪɴᴇ / Fᴀꜱᴛ Dᴏᴡɴʟᴏᴀᴅ 🌈', callback_data=f'gen_stream_link:{file_id}')
                             ],[
                                 InlineKeyboardButton('🫨ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘ', url=f'https://t.me/{SUPPORT_CHAT}'),
                                 InlineKeyboardButton('ᴍᴏᴠɪᴇ ᴄʜᴀɴɴᴇʟ', url=CHNL_LNK)
                             ],[
-                                InlineKeyboardButton("✨ʙᴜʏ sᴜʙsᴄʀɪᴘᴛɪᴏɴ ʀᴇᴍᴏᴠᴇ ᴀᴅ✨", url=f"https://telegram.me/{temp.U_NAME}?start=buy")
+                                InlineKeyboardButton("✨ʙᴜʏ sᴜʙsᴄʀɪᴘᴛɪᴏɴ ʀᴇᴍᴏᴠᴇ ᴀᴅ✨", url=f"https://telegram.me/{temp.U_NAME}?start=TheHappyHour")
                             ]
                         ]
                     )
@@ -329,7 +329,7 @@ async def start(client, message):
                     else InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton("✨ʙᴜʏ sᴜʙsᴄʀɪᴘᴛɪᴏɴ ʀᴇᴍᴏᴠᴇ ᴀᴅ✨", url=f"https://telegram.me/{temp.U_NAME}?start=buy")
+                                InlineKeyboardButton("✨ʙᴜʏ sᴜʙsᴄʀɪᴘᴛɪᴏɴ ʀᴇᴍᴏᴠᴇ ᴀᴅ✨", url=f"https://telegram.me/{temp.U_NAME}?start=TheHappyHour")
                             ]
                         ]
                     )
@@ -384,9 +384,9 @@ async def start(client, message):
                     InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton('Watch Online/ Fast Download', callback_data=f'gen_stream_link:{file_id}'),
+                                InlineKeyboardButton('🌈 Wᴀᴛᴄʜ Oɴʟɪɴᴇ / Fᴀꜱᴛ Dᴏᴡɴʟᴏᴀᴅ 🌈', callback_data=f'gen_stream_link:{file_id}'),
                             ],[
-                                InlineKeyboardButton("✨ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ✨", url="https://t.me/i_Movieee")
+                                InlineKeyboardButton("✨ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ✨", url="https://t.me/The_Happy_Hours")
                             ]
                         ]
                     )
@@ -394,7 +394,7 @@ async def start(client, message):
                     else InlineKeyboardMarkup(
                         [
                         [
-                          InlineKeyboardButton("✨ʙᴜʏ sᴜʙsᴄʀɪᴘᴛɪᴏɴ ʀᴇᴍᴏᴠᴇ ᴀᴅ✨", url=f"https://telegram.me/{temp.U_NAME}?start=buy")
+                          InlineKeyboardButton("✨ʙᴜʏ sᴜʙsᴄʀɪᴘᴛɪᴏɴ ʀᴇᴍᴏᴠᴇ ᴀᴅ✨", url=f"https://telegram.me/{temp.U_NAME}?start=TheHappyHour")
                          ]
                         ]
                     )
