@@ -257,6 +257,18 @@ async def start(client, message):
                 protect_content=True if PROTECT_CONTENT else False
             )
 
+        if data.startswith("TheHappyHour"):
+        btn = [            
+            [InlineKeyboardButton("🎁 ᴄʜᴀᴄᴋ ᴘʟᴀɴꜱ 🎁", callback_data="check")]
+        ]
+        reply_markup = InlineKeyboardMarkup(btn)
+        await message.reply_photo(
+            photo="https://telegra.ph/file/1d663cb92651c2b4adda8.jpg",
+            caption="<b>🔥 ᴘʀᴇᴍɪᴜᴍ ғᴇᴀᴛᴜʀᴇs 🔥\n\n➻ <u>ɴᴏ ɴᴇᴇᴅ ᴛᴏ ᴠᴇʀɪғʏ</u>\n➻ ᴅɪʀᴇᴄᴛ ғɪʟᴇs\n➻ ᴀᴅ-ғʀᴇᴇ ᴇxᴘᴇʀɪᴇɴᴄᴇ\n➻ ʜɪɢʜ-sᴘᴇᴇᴅ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ\n➻ ᴜɴʟɪᴍɪᴛᴇᴅ ᴍᴏᴠɪᴇs / sᴇʀɪᴇs\n➻ ғᴜʟʟ ᴀᴅᴍɪɴ sᴜᴘᴘᴏʀᴛ\n\n➻ <u>वेरिफाई नई करना होगा</u>\n➻ डायरेक्ट मूवी फाइल\n➻ ऑनलाइन स्ट्रीम लिंक\n➻ फास्ट डाउनलोड लिंक\n➻ ऐडमिन कि तरफ से पूरा सपोर्ट\n➻ Req Complete in 1D\n\n💥 70 हजार मूवी वाला चेनल भी मिलेगा....✅\n\n👇 ᴄʜᴀᴄᴋ ᴀʟʟ ᴘʟᴀɴꜱ 👇</b>",
+            reply_markup=reply_markup
+        )
+        return
+
     files_ = await get_file_details(file_id)           
     if not files_:
         pre, file_id = ((base64.urlsafe_b64decode(data + "=" * (-len(data) % 4))).decode("ascii")).split("_", 1)
@@ -289,7 +301,7 @@ async def start(client, message):
             )
             filetype = msg.media
             file = getattr(msg, filetype.value)
-            title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))
+            title = files.file_name
             size=get_size(file.file_size)
             f_caption = f"<code>{title}</code>"
             if CUSTOM_FILE_CAPTION:
@@ -303,7 +315,7 @@ async def start(client, message):
             pass
         return await message.reply('Nᴏ sᴜᴄʜ ғɪʟᴇ ᴇxɪsᴛ.')
     files = files_[0]
-    title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))
+    title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), files.file_name.split()))
     size=get_size(files.file_size)
     f_caption=files.caption
     if CUSTOM_FILE_CAPTION:
