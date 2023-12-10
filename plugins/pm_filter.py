@@ -1461,12 +1461,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 ᴅᴏᴡɴʟᴏᴀᴅ 📥", url=stream_link),
                                                     InlineKeyboardButton('🖥️ ꜱᴛʀᴇᴇᴍ 🖥️', url=page_link)]]))
-        except Exception as e:
+         except Exception as e:
             print(e)  # print the error message
             await query.answer(f"☣something went wrong. Check error:\n\n{e}", show_alert=True)
             return  
     else:
-        await query.answer("This Is only for premium users.....\n\nIf You Buy Premium\n\nSend Me - /plans", show_alert=True)  
+        await query.answer("This Is only for premium users.....\n\nIf You Buy Premium\n\nSend Me - /plans", show_alert=True) 
     
         elif query.data == "coct":
             buttons = [[
