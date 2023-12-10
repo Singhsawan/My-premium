@@ -1466,8 +1466,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.answer(f"☣something went wrong. Check error:\n\n{e}", show_alert=True)
             return
         return
-else:
-    await query.answer("This Is only for premium users.....\n\nIf You Buy Premium\n\nSend Me - /plans", show_alert=True)  
+    else:
+        await query.answer("This Is only for premium users.....\n\nIf You Buy Premium\n\nSend Me - /plans", show_alert=True)  
     
     elif query.data == "coct":
         buttons = [[
