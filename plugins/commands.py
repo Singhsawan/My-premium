@@ -257,7 +257,7 @@ async def start(client, message):
                 protect_content=True if PROTECT_CONTENT else False
             )
 
-        if data.startswith("TheHappyHour"):
+    if data.startswith("TheHappyHour"):
         btn = [            
             [InlineKeyboardButton("🎁 ᴄʜᴀᴄᴋ ᴘʟᴀɴꜱ 🎁", callback_data="check")]
         ]
