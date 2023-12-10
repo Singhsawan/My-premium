@@ -1,6 +1,6 @@
 import logging
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid, ChatAdminRequired
-from info import AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM, SHORTLINK_URL, SHORTLINK_API, LOG_CHANNEL, GRP_LNK, CHNL_LNK, CUSTOM_FILE_CAPTION, IS_VERIFY, VERIFY2_URL, VERIFY2_API, PROTECT_CONTENT, HOW_TO_VERIFY, PREMIUM_LOGS
+from info import AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM, SHORTLINK_URL, SHORTLINK_API, LOG_CHANNEL, GRP_LNK, CHNL_LNK, CUSTOM_FILE_CAPTION, IS_VERIFY, VERIFY2_URL, VERIFY2_API, PROTECT_CONTENT, HOW_TO_VERIFY, PREMIUM_LOGS, STREAM_URL, STREAM_BIN, IS_STREAM,
 from imdb import Cinemagoer 
 import asyncio
 from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
@@ -786,3 +786,27 @@ async def check_verification(bot, userid):
                 return True
         else:
             return True
+
+
+def get_media_from_message(message: "Message"):
+    media_types = (
+        "audio",
+        "document",
+        "photo",
+        "sticker",
+        "animation",
+        "video",
+        "voice",
+        "video_note",
+    )
+    for attr in media_types:
+        if media := getattr(message, attr, None):
+            return media
+
+def get_name(media_msg: Message) -> str:
+    media = get_media_from_message(media_msg)
+    return getattr(media, "file_name", "None")
+
+def get_hash(media_msg: Message) -> str:
+    media = get_media_from_message(media_msg)
+    return getattr(media, "file_unique_id", "")[:6]
