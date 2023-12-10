@@ -1468,8 +1468,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
     else:
         await query.answer("This Is only for premium users.....\n\nIf You Buy Premium\n\nSend Me - /plans", show_alert=True) 
     
-      elif query.data == "coct":
-            buttons = [[
+elif query.data == "coct":
+    buttons = [[
                 InlineKeyboardButton('⟸ Bᴀᴄᴋ', callback_data='help')
         ]]
         await client.edit_message_media(
