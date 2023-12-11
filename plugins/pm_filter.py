@@ -4,6 +4,8 @@ import re
 import ast
 import math
 import random
+import pytz
+from datetime import datetime, timedelta, date, time
 lock = asyncio.Lock()
 
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
@@ -11,11 +13,12 @@ from Script import script
 import pyrogram
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, \
     make_inactive
-from info import *
+from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, SUPPORT_CHAT_ID, CUSTOM_FILE_CAPTION, MSG_ALRT, PICS, AUTH_GROUPS, P_TTI_SHOW_OFF, GRP_LNK, CHNL_LNK, NOR_IMG, LOG_CHANNEL, SPELL_IMG, MAX_B_TN, IMDB, \
+    SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE, NO_RESULTS_MSG, TUTORIAL, REQST_CHANNEL, IS_TUTORIAL, QUALITIES, LANGUAGES, SEASONS, SUPPORT_CHAT, PREMIUM_USER, STREAM_URL, STREAM_BIN
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InputMediaPhoto
 from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
-from utils import get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings, get_shortlink, send_all, check_verification, get_token
+from utils import get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings, get_shortlink, get_tutorial, send_all, get_hash, get_name
 from database.users_chats_db import db
 from database.ia_filterdb import Media, get_file_details, get_search_results, get_bad_files
 from database.filters_mdb import (
@@ -23,22 +26,25 @@ from database.filters_mdb import (
     find_filter,
     get_filters,
 )
-from util.human_readable import humanbytes
-from urllib.parse import quote_plus
-from util.file_properties import get_name, get_hash, get_media_file_size
 from database.gfilters_mdb import (
     find_gfilter,
     get_gfilters,
     del_allg
 )
 import logging
+from urllib.parse import quote_plus
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
+BUTTON = {}
 BUTTONS = {}
+FRESH = {}
+BUTTONS0 = {}
+BUTTONS1 = {}
+BUTTONS2 = {}
 SPELL_CHECK = {}
-
+# ENABLE_SHORTLINK = ""
 
 @Client.on_message(filters.group | filters.private & filters.text & filters.incoming)
 async def give_filter(client, message):
@@ -1416,7 +1422,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-    elif query.data.startswith("generate_stream_link"):
+    elif query.data.startswith("gen_stream_link"):
         if await db.has_premium_access(query.from_user.id):
             _, file_id = query.data.split(":")
             try:
@@ -1424,31 +1430,31 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 username =  query.from_user.mention 
 
                 log_msg = await client.send_cached_media(
-                    chat_id=LOG_CHANNEL,
+                    chat_id=int(STREAM_BIN),
                     file_id=file_id,
                 )
                 fileName = {quote_plus(get_name(log_msg))}
-                lusifilms_s = f"{URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
-                lusifilms_d = f"{URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+                page_link = f"{STREAM_URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+                stream_link = f"{STREAM_URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
 
                 xo = await query.message.reply_text(f'🧨')
                 await asyncio.sleep(1)
                 await xo.delete()
 
-                await log_msg.reply_text(
-                    text=f"tg://openmessage?user_id={user_id} \n•• ᴜꜱᴇʀɴᴀᴍᴇ : {username} \n\nFile Name : {fileName}",
+                return await query.message.reply_text(
+                    text=f"Usᴇʀ ID: {user_id}\n\nUsᴇʀ Nᴀᴍᴇ: {username} 𝐅𝐢𝐥𝐞 𝐍𝐚𝐦𝐞: {fileName}"
                     quote=True,
                     disable_web_page_preview=True,
-                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 ᴅᴏᴡɴʟᴏᴀᴅ 📥", url=lusifilms_d),  # we download Link
-                                                        InlineKeyboardButton('🖥️ ꜱᴛʀᴇᴇᴍ 🖥️', url=lusifilms_s)]])  # web stream Link
+                    InlineKeyboardMarkup([[InlineKeyboardButton("Fast Download ⚡", url=stream_link),
+                                           InlineKeyboardButton('🎥 Stream/Watch online', url=page_link)]])
                 )
             
                 await query.message.reply_text(
-                    text="Link gen",
+                    text="<b>Sᴛʀᴇᴀᴍ Lɪɴᴋ Gᴇɴᴇʀᴀᴛᴇᴅ...😁</b>",
                     quote=True,
                     disable_web_page_preview=True,
-                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 ᴅᴏᴡɴʟᴏᴀᴅ 📥", url=lusifilms_d),  # we download Link
-                                                        InlineKeyboardButton('🖥️ ꜱᴛʀᴇᴇᴍ 🖥️', url=lusifilms_s)]])  # web stream Link
+                    InlineKeyboardMarkup([[InlineKeyboardButton("Fast Download ⚡", url=stream_link),
+                                           InlineKeyboardButton('🎥 Stream/Watch online', url=page_link)]])
                 )
             except Exception as e:
                 print(e)  # print the error message
