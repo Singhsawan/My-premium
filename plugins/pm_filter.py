@@ -1,4 +1,4 @@
-# Kanged From @TroJanZheX
+# Kange From @TroJanZheX
 import asyncio
 import re
 import ast
@@ -705,16 +705,25 @@ async def cb_handler(client: Client, query: CallbackQuery):
                             file_id=file_id,
                             caption=f_caption,
                             protect_content=True if ident == "filep" else False,
-                            reply_markup=InlineKeyboardMarkup(
-                                [
-                                [
-                                InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=GRP_LNK),
-                                InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
-                                ],[
-                                InlineKeyboardButton("🚀 Fast Download / Watch Online🖥️", callback_data=f'generate_stream_link:{file_id}')
-                                ]
-                                ]
-                            )
+                            reply_markup=(
+                                InlineKeyboardMarkup(
+                                    [
+                                        [
+                                            InlineKeyboardButton('🌈 Wᴀᴛᴄʜ Oɴʟɪɴᴇ / Fᴀꜱᴛ Dᴏᴡɴʟᴏᴀᴅ 🌈', callback_data=f'gen_stream_link:{file_id}'),
+                                         ],[
+                                            InlineKeyboardButton("✨ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ✨", url="https://t.me/The_Happy_Hours")
+                                         ]
+                                    ]
+                                )
+                                if IS_STREAM
+                                else InlineKeyboardMarkup(
+                                    [
+                                    [
+                                      InlineKeyboardButton("✨ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ✨", url="https://t.me/The_Happy_Hours")
+                                    ]
+                                    ]
+                                )
+                           )
                         )
                         return await query.answer('आपको मूवी पर्सनलचैट में भेजा है...✅\n\nFile Send Successfully ✅', show_alert=True)
                 else:
@@ -780,15 +789,26 @@ async def cb_handler(client: Client, query: CallbackQuery):
             file_id=file_id,
             caption=f_caption,
             protect_content=True if ident == 'checksubp' else False,
-            reply_markup=InlineKeyboardMarkup(
-                [
-                 [
-                  InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=GRP_LNK),
-                  InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
-               ]
-                ]
-            )
+            reply_markup=(
+                InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton('🌈 Wᴀᴛᴄʜ Oɴʟɪɴᴇ / Fᴀꜱᴛ Dᴏᴡɴʟᴏᴀᴅ 🌈', callback_data=f'gen_stream_link:{file_id}'),
+                        ],[
+                            InlineKeyboardButton("✨ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ✨", url="https://t.me/The_Happy_Hours")
+                        ]
+                    ]
+                )
+                if IS_STREAM
+                else InlineKeyboardMarkup(
+                    [
+                    [
+                      InlineKeyboardButton("✨ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ✨", url="https://t.me/The_Happy_Hours")
+                     ]
+                    ]
+               )
         )
+    )
     elif query.data == "pages":
         await query.answer()
 
