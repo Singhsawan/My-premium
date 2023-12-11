@@ -11,26 +11,27 @@ from Script import script
 import pyrogram
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, \
     make_inactive
-from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, SUPPORT_CHAT_ID, CUSTOM_FILE_CAPTION, MSG_ALRT, PICS, AUTH_GROUPS, P_TTI_SHOW_OFF, GRP_LNK, CHNL_LNK, NOR_IMG, LOG_CHANNEL, SPELL_IMG, MAX_B_TN, IMDB, \
-    SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE, NO_RESULTS_MSG, IS_VERIFY, HOW_TO_VERIFY, STREAM_URL, STREAM_BIN
+from info import *
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InputMediaPhoto
 from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
 from utils import get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings, get_shortlink, send_all, check_verification, get_token
 from database.users_chats_db import db
-from database.ia_filterdb import Media, get_file_details, get_search_results, get_bad_files, get_hash, get_name
+from database.ia_filterdb import Media, get_file_details, get_search_results, get_bad_files
 from database.filters_mdb import (
     del_all,
     find_filter,
     get_filters,
 )
+from util.human_readable import humanbytes
+from urllib.parse import quote_plus
+from util.file_properties import get_name, get_hash, get_media_file_size
 from database.gfilters_mdb import (
     find_gfilter,
     get_gfilters,
     del_allg
 )
 import logging
-from urllib.parse import quote_plus
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
@@ -174,14 +175,10 @@ async def next_page(bot, query):
                 btn.append(
                     [InlineKeyboardButton("⌫ 𝐁𝐀𝐂𝐊", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"{math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}", callback_data="pages")]
                 )
-                btn.append([
-        InlineKeyboardButton("𝗦𝗲𝗻𝗱 𝗔𝗹𝗹 𝗙𝗶𝗹𝗲𝘀", callback_data=f"send_fall#files#{offset}#{req}")
-    ])
+                btn.append([InlineKeyboardButton("☆∵☆∵☆∵☆ Sᴇɴᴅ Aʟʟ ☆∵☆∵☆∵☆", callback_data=f"send_fall#files#{offset}#{req}")])
             elif off_set is None:
                 btn.append([InlineKeyboardButton(f"{math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}", callback_data="pages"), InlineKeyboardButton("𝐍𝐄𝐗𝐓 ➪", callback_data=f"next_{req}_{key}_{n_offset}")])
-                btn.append([
-        InlineKeyboardButton("𝗦𝗲𝗻𝗱 𝗔𝗹𝗹 𝗙𝗶𝗹𝗲𝘀", callback_data=f"send_fall#files#{offset}#{req}")
-    ])
+                
             else:
                 btn.append(
                     [
@@ -190,9 +187,8 @@ async def next_page(bot, query):
                         InlineKeyboardButton("𝐍𝐄𝐗𝐓 ➪", callback_data=f"next_{req}_{key}_{n_offset}")
                     ],
                 )
-                btn.append([
-        InlineKeyboardButton("𝗦𝗲𝗻𝗱 𝗔𝗹𝗹 𝗙𝗶𝗹𝗲𝘀", callback_data=f"send_fall#files#{offset}#{req}")
-    ])
+                btn.append([InlineKeyboardButton("☆∵☆∵☆∵☆ Sᴇɴᴅ Aʟʟ ☆∵☆∵☆∵☆", callback_data=f"send_fall#files#{offset}#{req}")])
+               
         else:
             if 0 < offset <= int(MAX_B_TN):
                 off_set = 0
@@ -204,14 +200,12 @@ async def next_page(bot, query):
                 btn.append(
                     [InlineKeyboardButton("⌫ 𝐁𝐀𝐂𝐊", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"{math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}", callback_data="pages")]
                 )
-                btn.append([
-        InlineKeyboardButton("𝗦𝗲𝗻𝗱 𝗔𝗹𝗹 𝗙𝗶𝗹𝗲𝘀", callback_data=f"send_fall#files#{offset}#{req}")
-    ])
+                btn.append([InlineKeyboardButton("☆∵☆∵☆∵☆ Sᴇɴᴅ Aʟʟ ☆∵☆∵☆∵☆", callback_data=f"send_fall#files#{offset}#{req}")])
+                
             elif off_set is None:
                 btn.append([InlineKeyboardButton(f"{math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}", callback_data="pages"), InlineKeyboardButton("𝐍𝐄𝐗𝐓 ➪", callback_data=f"next_{req}_{key}_{n_offset}")])
-                btn.append([
-        InlineKeyboardButton("𝗦𝗲𝗻𝗱 𝗔𝗹𝗹 𝗙𝗶𝗹𝗲𝘀", callback_data=f"send_fall#files#{offset}#{req}")
-    ])
+            
+               
             else:
                 btn.append(
                     [
@@ -220,9 +214,8 @@ async def next_page(bot, query):
                         InlineKeyboardButton("𝐍𝐄𝐗𝐓 ➪", callback_data=f"next_{req}_{key}_{n_offset}")
                     ],
                 )
-                btn.append([
-        InlineKeyboardButton("𝗦𝗲𝗻𝗱 𝗔𝗹𝗹 𝗙𝗶𝗹𝗲𝘀", callback_data=f"send_fall#files#{offset}#{req}")
-    ])
+                btn.append([InlineKeyboardButton("☆∵☆∵☆∵☆ Sᴇɴᴅ Aʟʟ ☆∵☆∵☆∵☆", callback_data=f"send_fall#files#{offset}#{req}")])
+    
     except KeyError:
         await save_group_settings(query.message.chat.id, 'max_btn', True)
         if 0 < offset <= 10:
@@ -235,14 +228,10 @@ async def next_page(bot, query):
             btn.append(
                 [InlineKeyboardButton("⌫ 𝐁𝐀𝐂𝐊", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"{math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}", callback_data="pages")]
             )
-            btn.append([
-        InlineKeyboardButton("𝗦𝗲𝗻𝗱 𝗔𝗹𝗹 𝗙𝗶𝗹𝗲𝘀", callback_data=f"send_fall#files#{offset}#{req}")
-    ])
+    
         elif off_set is None:
             btn.append([InlineKeyboardButton(f"{math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}", callback_data="pages"), InlineKeyboardButton("𝐍𝐄𝐗𝐓 ➪", callback_data=f"next_{req}_{key}_{n_offset}")])
-            btn.append([
-        InlineKeyboardButton("𝗦𝗲𝗻𝗱 𝗔𝗹𝗹 𝗙𝗶𝗹𝗲𝘀", callback_data=f"send_fall#files#{offset}#{req}")
-    ])
+           
         else:
             btn.append(
                 [
@@ -251,9 +240,8 @@ async def next_page(bot, query):
                     InlineKeyboardButton("𝐍𝐄𝐗𝐓 ➪", callback_data=f"next_{req}_{key}_{n_offset}")
                 ],
             )
-            btn.append([
-        InlineKeyboardButton("𝗦𝗲𝗻𝗱 𝗔𝗹𝗹 𝗙𝗶𝗹𝗲𝘀", callback_data=f"send_fall#files#{offset}#{req}")
-    ])
+            btn.append([InlineKeyboardButton("☆∵☆∵☆∵☆ Sᴇɴᴅ Aʟʟ ☆∵☆∵☆∵☆", callback_data=f"send_fall#files#{offset}#{req}")])
+            
     btn.insert(0, [
         InlineKeyboardButton("⚡ Hᴏᴡ Tᴏ Vᴇʀɪꜰʏ ⚡", url=f"https://t.me/The_Happy_Hour_Hindi/1393")
     ])
@@ -356,25 +344,20 @@ async def language_check(bot, query):
                     btn.append(
                         [InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="𝐍𝐄𝐗𝐓 ➪",callback_data=f"next_{req}_{key}_{offset}")]
                     )
-                    btn.append([
-            InlineKeyboardButton("𝗦𝗲𝗻𝗱 𝗔𝗹𝗹 𝗙𝗶𝗹𝗲𝘀", callback_data=f"send_fall#{pre}#{0}#{userid}")
-        ])
+                    btn.append([InlineKeyboardButton("☆∵☆∵☆∵☆ Sᴇɴᴅ Aʟʟ ☆∵☆∵☆∵☆", callback_data=f"send_fall#{pre}#{0}#{userid}")])
 
                 else:
                     btn.append(
                         [InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/int(MAX_B_TN))}",callback_data="pages"), InlineKeyboardButton(text="𝐍𝐄𝐗𝐓 ➪",callback_data=f"next_{req}_{key}_{offset}")]
                     )
-                    btn.append([
-            InlineKeyboardButton("𝗦𝗲𝗻𝗱 𝗔𝗹𝗹 𝗙𝗶𝗹𝗲𝘀", callback_data=f"send_fall#{pre}#{0}#{userid}")
-        ])
+                    btn.append([InlineKeyboardButton("☆∵☆∵☆∵☆ Sᴇɴᴅ Aʟʟ ☆∵☆∵☆∵☆", callback_data=f"send_fall#{pre}#{0}#{userid}")])
+                   
             except KeyError:
                 await save_group_settings(query.message.chat.id, 'max_btn', True)
                 btn.append(
                     [InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="𝐍𝐄𝐗𝐓 ➪",callback_data=f"next_{req}_{key}_{offset}")]
                 )
-                btn.append([
-            InlineKeyboardButton("𝗦𝗲𝗻𝗱 𝗔𝗹𝗹 𝗙𝗶𝗹𝗲𝘀", callback_data=f"send_fall#{pre}#{0}#{userid}")
-        ])
+                btn.append([InlineKeyboardButton("☆∵☆∵☆∵☆ Sᴇɴᴅ Aʟʟ ☆∵☆∵☆∵☆", callback_data=f"send_fall#{pre}#{0}#{userid}")])
         try:
             await query.edit_message_reply_markup(
                 reply_markup=InlineKeyboardMarkup(btn)
@@ -699,17 +682,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
                             InlineKeyboardButton("Vᴇʀɪғʏ", url=await get_token(client, query.from_user.id, f"https://telegram.me/{temp.U_NAME}?start=", file_id)),
                             InlineKeyboardButton("Hᴏᴡ Tᴏ Vᴇʀɪғʏ", url=HOW_TO_VERIFY)
                         ],[
-            InlineKeyboardButton("🔥 ᴜɴʟᴏᴄᴋ ᴘʀᴇᴍɪᴜᴍ 🔥", url="https://t.me/TheHappyHour_T1_BOT?start=TheHappyHour")
+            InlineKeyboardButton("🔥 ᴜɴʟᴏᴄᴋ ᴘʀᴇᴍɪᴜᴍ 🔥", url="https://t.me/TheHappyHourBot?start=plan")
           ]]
                         await client.send_message(
                             chat_id=query.from_user.id,
-                            text="<b>हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 15 second Friends 🥲\n\nAfter Get Unlimited Movies...✅\n\n⇨⇦⇨⇦⇨⇦⇨⇦⇨⇦⇨⇦⇨⇦\n\nअगर रोज रोज वेरिफिकेशन नई करना है\nतो /plans पर क्लिक कर के premium खरीद ले...।\n(इस से वेरिफिकेशन नई करना पड़ेगा)</b>",
+                            text="<b>हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 15 second Broo 🥲\n\nAfter Get Unlimited Movies...✅</b>",
                             protect_content=True if ident == 'checksubp' else False,
                             disable_web_page_preview=True,
                             parse_mode=enums.ParseMode.HTML,
                             reply_markup=InlineKeyboardMarkup(btn)
                         )
-                        return await query.answer("हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 15 second Friends 🥲\n\nAfter Get Unlimited Movies...✅", show_alert=True)
+                        return await query.answer("हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 15 second Broo 🥲\n\nAfter Get Unlimited Movies...✅", show_alert=True)
                     else:
                         await client.send_cached_media(
                             chat_id=query.from_user.id,
@@ -721,7 +704,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                                 [
                                 InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=GRP_LNK),
                                 InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
-                            ]
+                                ],[
+                                InlineKeyboardButton("🚀 Fast Download / Watch Online🖥️", callback_data=f'generate_stream_link:{file_id}')
+                                ]
                                 ]
                             )
                         )
@@ -747,14 +732,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
             elif is_over == 'fsub':
                 return await query.answer("Hᴇʏ, Yᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴊᴏɪɴᴇᴅ ɪɴ ᴍʏ ʙᴀᴄᴋ ᴜᴘ ᴄʜᴀɴɴᴇʟ. Cʜᴇᴄᴋ ᴍʏ PM ᴛᴏ ᴊᴏɪɴ ᴀɴᴅ ɢᴇᴛ ғɪʟᴇs !", show_alert=True)
             elif is_over == 'verify':
-                return await query.answer("हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 15 second Friends 🥲\n\nAfter Get Unlimited Movies...✅", show_alert=True)
+                return await query.answer("हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 15 second Broo 🥲\n\nAfter Get Unlimited Movies...✅", show_alert=True)
             else:
                 return await query.answer(f"Eʀʀᴏʀ: {is_over}", show_alert=True)
         files_ = await get_file_details(file_id)
         if not files_:
             return await query.answer('Nᴏ sᴜᴄʜ ғɪʟᴇ ᴇxɪsᴛ.')
         files = files_[0]
-        title = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), files.file_name.split()))
+        title = {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), files.file_name.split()))}
         size = get_size(files.file_size)
         f_caption = files.caption
         if CUSTOM_FILE_CAPTION:
@@ -773,11 +758,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 InlineKeyboardButton("Vᴇʀɪғʏ", url=await get_token(client, query.from_user.id, f"https://telegram.me/{temp.U_NAME}?start=", file_id)),
                 InlineKeyboardButton("Hᴏᴡ Tᴏ Vᴇʀɪғʏ", url=HOW_TO_VERIFY)
             ],[
-            InlineKeyboardButton("🔥 ᴜɴʟᴏᴄᴋ ᴘʀᴇᴍɪᴜᴍ 🔥", url="https://t.me/TheHappyHour_T1_BOT?start=TheHappyHour")
+            InlineKeyboardButton("🔥 ᴜɴʟᴏᴄᴋ ᴘʀᴇᴍɪᴜᴍ 🔥", url="https://t.me/TheHappyHourBot?start=plan")
           ]]
             await client.send_message(
                 chat_id=query.from_user.id,
-                text="<b>हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 15 second Friends 🥲\n\nAfter Get Unlimited Movies...✅\n\n⇨⇦⇨⇦⇨⇦⇨⇦⇨⇦⇨⇦⇨⇦\n\nअगर रोज रोज वेरिफिकेशन नई करना है\nतो /plans पर क्लिक कर के premium खरीद ले...।\n(इस से वेरिफिकेशन नई करना पड़ेगा)</b>",
+                text="<b>हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 15 second Broo 🥲\n\nAfter Get Unlimited Movies...✅\n\n⇨⇦⇨⇦⇨⇦⇨⇦⇨⇦⇨⇦⇨⇦\n\nअगर रोज रोज वेरिफिकेशन नई करना है\nतो /plans पर क्लिक कर के premium खरीद ले...।\n(इस से वेरिफिकेशन नई करना पड़ेगा)</b>",
                 protect_content=True if ident == 'checksubp' else False,
                 disable_web_page_preview=True,
                 parse_mode=enums.ParseMode.HTML,
@@ -812,7 +797,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif is_over == 'fsub':
             return await query.answer("Hᴇʏ, Yᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴊᴏɪɴᴇᴅ ɪɴ ᴍʏ ʙᴀᴄᴋ ᴜᴘ ᴄʜᴀɴɴᴇʟ. Cʜᴇᴄᴋ ᴍʏ PM ᴛᴏ ᴊᴏɪɴ ᴀɴᴅ ɢᴇᴛ ғɪʟᴇs !", show_alert=True)
         elif is_over == 'verify':
-            return await query.answer("हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 15 second Friends 🥲\n\nAfter Get Unlimited Movies...✅", show_alert=True)
+            return await query.answer("हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 15 second Broo 🥲\n\nAfter Get Unlimited Movies...✅", show_alert=True)
         else:
             return await query.answer(f"Eʀʀᴏʀ: {is_over}", show_alert=True)
 
@@ -827,7 +812,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             try:
                 for file in files:
                     file_ids = file.file_id
-                    file_name = ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))
+                    file_name = {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}
                     result = await Media.collection.delete_one({
                         '_id': file_ids,
                     })
@@ -1431,44 +1416,47 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-    elif query.data.startswith("gen_stream_link"):
+    elif query.data.startswith("generate_stream_link"):
         if await db.has_premium_access(query.from_user.id):
             _, file_id = query.data.split(":")
-        try:
-            user_id = query.from_user.id
-            username =  query.from_user.mention 
-            log_msg = await client.send_cached_media(
-                chat_id=int(STREAM_BIN),
-                file_id=file_id,
-            )
-            fileName = {quote_plus(get_name(log_msg))}
-            page_link = f"{STREAM_URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
-            stream_link = f"{STREAM_URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+            try:
+                user_id = query.from_user.id
+                username =  query.from_user.mention 
 
-            g = await query.message.reply_text("<b>Link Generating...</b>")
-            await asyncio.sleep(1)
-            await g.delete()
+                log_msg = await client.send_cached_media(
+                    chat_id=LOG_CHANNEL,
+                    file_id=file_id,
+                )
+                fileName = {quote_plus(get_name(log_msg))}
+                lusifilms_s = f"{URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+                lusifilms_d = f"{URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
 
-            await log_msg.reply_text(
-                text=f"Usᴇʀ ID: {user_id}\n\nUsᴇʀ Nᴀᴍᴇ: {username} 𝐅𝐢𝐥𝐞 𝐍𝐚𝐦𝐞: {fileName}",
-                quote=True,
-                disable_web_page_preview=True,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 ᴅᴏᴡɴʟᴏᴀᴅ 📥", url=stream_link),
-                                                    InlineKeyboardButton('🖥️ ꜱᴛʀᴇᴇᴍ 🖥️', url=page_link)]]))
-            return await query.message.reply_text(
-                text="<b>Sᴛʀᴇᴀᴍ Lɪɴᴋ Gᴇɴᴇʀᴀᴛᴇᴅ...😁</b>",
-                quote=True,
-                disable_web_page_preview=True,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 ᴅᴏᴡɴʟᴏᴀᴅ 📥", url=stream_link),
-                                                    InlineKeyboardButton('🖥️ ꜱᴛʀᴇᴇᴍ 🖥️', url=page_link)]]))
-        except Exception as e:
-            print(e)  # print the error message
-            await query.answer(f"☣something went wrong. Check error:\n\n{e}", show_alert=True)
-            return  
-    else:
-        await query.answer("This Is only for premium users.....\n\nIf You Buy Premium\n\nSend Me - /plans", show_alert=True) 
+                xo = await query.message.reply_text(f'🧨')
+                await asyncio.sleep(1)
+                await xo.delete()
 
-    
+                await log_msg.reply_text(
+                    text=f"tg://openmessage?user_id={user_id} \n•• ᴜꜱᴇʀɴᴀᴍᴇ : {username} \n\nFile Name : {fileName}",
+                    quote=True,
+                    disable_web_page_preview=True,
+                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 ᴅᴏᴡɴʟᴏᴀᴅ 📥", url=lusifilms_d),  # we download Link
+                                                        InlineKeyboardButton('🖥️ ꜱᴛʀᴇᴇᴍ 🖥️', url=lusifilms_s)]])  # web stream Link
+                )
+            
+                await query.message.reply_text(
+                    text="Link gen",
+                    quote=True,
+                    disable_web_page_preview=True,
+                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 ᴅᴏᴡɴʟᴏᴀᴅ 📥", url=lusifilms_d),  # we download Link
+                                                        InlineKeyboardButton('🖥️ ꜱᴛʀᴇᴇᴍ 🖥️', url=lusifilms_s)]])  # web stream Link
+                )
+            except Exception as e:
+                print(e)  # print the error message
+                await query.answer(f"☣something went wrong sweetheart\n\n{e}", show_alert=True)
+                return
+        else:
+            await query.answer("This Is only for premium users", show_alert=True)
+            
     elif query.data == "coct":
         buttons = [[
             InlineKeyboardButton('⟸ Bᴀᴄᴋ', callback_data='help')
@@ -1781,24 +1769,20 @@ async def auto_filter(client, msg, spoll=False):
                 btn.append(
                     [InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="𝐍𝐄𝐗𝐓 ➪",callback_data=f"next_{req}_{key}_{offset}")]
                 )
-                btn.append([
-        InlineKeyboardButton("𝗦𝗲𝗻𝗱 𝗔𝗹𝗹 𝗙𝗶𝗹𝗲𝘀", callback_data=f"send_fall#{pre}#{0}#{message.from_user.id}")
-    ])
+                btn.append([InlineKeyboardButton("☆∵☆∵☆∵☆ Sᴇɴᴅ Aʟʟ ☆∵☆∵☆∵☆", callback_data=f"send_fall#{pre}#{0}#{message.from_user.id}")])
             else:
                 btn.append(
                     [InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/int(MAX_B_TN))}",callback_data="pages"), InlineKeyboardButton(text="𝐍𝐄𝐗𝐓 ➪",callback_data=f"next_{req}_{key}_{offset}")]
                 )
-                btn.append([
-        InlineKeyboardButton("𝗦𝗲𝗻𝗱 𝗔𝗹𝗹 𝗙𝗶𝗹𝗲𝘀", callback_data=f"send_fall#{pre}#{0}#{message.from_user.id}")
-    ])
+                btn.append([InlineKeyboardButton("☆∵☆∵☆∵☆ Sᴇɴᴅ Aʟʟ ☆∵☆∵☆∵☆", callback_data=f"send_fall#{pre}#{0}#{message.from_user.id}")])
+    
         except KeyError:
             await save_group_settings(message.chat.id, 'max_btn', True)
             btn.append(
                 [InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="𝐍𝐄𝐗𝐓 ➪",callback_data=f"next_{req}_{key}_{offset}")]
             )
-            btn.append([
-        InlineKeyboardButton("𝗦𝗲𝗻𝗱 𝗔𝗹𝗹 𝗙𝗶𝗹𝗲𝘀", callback_data=f"send_fall#{pre}#{0}#{message.from_user.id}")
-    ])
+            btn.append([InlineKeyboardButton("☆∵☆∵☆∵☆ Sᴇɴᴅ Aʟʟ ☆∵☆∵☆∵☆", callback_data=f"send_fall#{pre}#{0}#{message.from_user.id}")])
+    
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
     if imdb:
