@@ -1448,7 +1448,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     InlineKeyboardMarkup([[InlineKeyboardButton("Fast Download ⚡", url=stream_link),
                                            InlineKeyboardButton('🎥 Stream/Watch online', url=page_link)]])
                 )
-            
                 await query.message.reply_text(
                     text="<b>Sᴛʀᴇᴀᴍ Lɪɴᴋ Gᴇɴᴇʀᴀᴛᴇᴅ...😁</b>",
                     quote=True,
