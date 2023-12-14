@@ -683,11 +683,11 @@ async def send_all(bot, userid, files, ident):
             InlineKeyboardButton("Vᴇʀɪғʏ", url=await get_token(bot, userid, f"https://telegram.me/{temp.U_NAME}?start=", 'send_all')),
             InlineKeyboardButton("Hᴏᴡ Tᴏ Vᴇʀɪғʏ", url=HOW_TO_VERIFY)
         ],[
-            InlineKeyboardButton("🔥 ᴜɴʟᴏᴄᴋ ᴘʀᴇᴍɪᴜᴍ 🔥", url="https://t.me/TheHappyHour_T1_BOT?start=TheHappyHour")
+            InlineKeyboardButton("🔥 ᴜɴʟᴏᴄᴋ ᴘʀᴇᴍɪᴜᴍ 🔥", url="https://t.me/TheHappyHourBOT?start=TheHappyHour")
           ]]
         await bot.send_message(
             chat_id=userid,
-            text="<b>हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 15 second Bro 🥲\n\nAfter Get Unlimited Movies...✅\n\n⇋⇋⇋⇋⇋⇋⇋⇋⇋⇋⇋⇋⇋⇋\n\nअगर रोज रोज वेरिफिकेशन नई करना है\nतो /plans पर क्लिक कर के premium खरीद ले...।\n(इस से वेरिफिकेशन नई करना पड़ेगा)</b>",
+            text="<b>हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 15 second Bro 🥲\n\nAfter Get Unlimited Movies...✅</b>",
             protect_content=True if PROTECT_CONTENT else False,
             reply_markup=InlineKeyboardMarkup(btn)
         )
@@ -717,8 +717,6 @@ async def send_all(bot, userid, files, ident):
                     InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton('🌈 Wᴀᴛᴄʜ Oɴʟɪɴᴇ / Fᴀꜱᴛ Dᴏᴡɴʟᴏᴀᴅ 🌈', callback_data=f'gen_stream_link')
-                            ],[
                                 InlineKeyboardButton("✨ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ✨", url="https://t.me/The_Happy_Hours")
                             ]
                         ]
