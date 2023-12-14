@@ -20,11 +20,11 @@ async def remove_premium(client, message):
             await db.remove_premium_access(user_id)
             await message.reply_text(f"<b>Sᴜᴄᴄᴇssꜰᴜʟʟy Rᴇᴍᴏᴠᴇᴅ {user.mention}'s Pʀᴇᴍɪᴜᴍ Sᴜʙꜱᴄʀɪᴘᴛɪᴏɴ ❗</b>")
             try:
-                await client.send_message(chat_id=user_id, text=f"<b><i>Hᴇʏ Tʜᴇʀᴇ {user.mention} 👋</i>\n\nYᴏᴜʀ Pʀᴇᴍɪᴜᴍ Sᴜʙꜱᴄʀɪᴘᴛɪᴏɴ Hᴀs Bᴇᴇɴ Rᴇᴍᴏᴠᴇᴅ ❌</b>\n\n<b>Fᴏʀ Aɴʏ Hᴇʟᴘ Cᴏɴᴛᴀᴄᴛ Aᴅᴍɪɴ</b>")
+                await client.send_message(chat_id=user_id, text=f"<b>आपका प्रीमियम प्लान खतम हो गया है ‼️\n\nअगर आपको वापस प्रीमियम Buy करना है तो /plans पर क्लिक करके प्लान वापस Buy कर ले...‼️\n\nTʜᴀɴᴋꜱ Fᴏʀ Uꜱɪɴɢ Oᴜʀ Sᴇʀᴠɪᴄᴇ...❤️</b>")
             except:
                 pass
         else:
-            await message.reply_text(f"<b>idk who is this {user.mention} ❓</b>")
+            await message.reply_text(f"<b>who is this {user.mention} ❓</b>")
     else:
         await message.reply_text("<b>Cᴏᴍᴍᴀɴᴅ Iɴᴄᴏᴍᴘʟᴇᴛᴇ...</b>")
 
@@ -46,9 +46,9 @@ async def myplan(client, message):
         minutes, seconds = divmod(remainder, 60)
 
         time_left_str = f"{days} days, {hours} hours, {minutes} minutes"
-        await message.reply_text(f"<b><u>Cᴜʀʀᴇɴᴛ Pʟᴀɴ Dᴇᴛᴀɪʟs 📊</u>\n\nUꜱᴇʀ : {user}\n\nUꜱᴇʀ Iᴅ : <code>{user_id}</code>\n\nTɪᴍᴇ Lᴇꜰᴛ : <code>{time_left_str}</code>\n\nExᴘ Tɪᴍᴇ : <code>{expiry_str_in_ist}</code></b>", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Uᴘɢʀᴀᴅᴇ", url="t.me/pirates_king_luffy"), InlineKeyboardButton("Cʟᴏsᴇ ❌", callback_data="close_data")]])) 
+        await message.reply_text(f"<b>⚡ ᴄᴜʀʀᴇɴᴛ ᴘʟᴀɴ ᴅᴇᴛᴀɪʟꜱ ⚡\n\nᴛɪᴍᴇ ʟᴇꜰᴛ - {time_left_str}\nᴇxᴘɪʀᴇ ᴛɪᴍᴇ - {expiry_str_in_ist}</b>", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Uᴘɢʀᴀᴅᴇ", url="https://t.me/TheHappyHourBot?start=TheHappyHour"), InlineKeyboardButton("Cʟᴏsᴇ ❌", callback_data="close_data")]])) 
     else:
-        await message.reply_text(f"<b>ʜᴇʏ {user},\n\nʏᴏᴜ ᴅᴏ ɴᴏᴛ ʜᴀᴠᴇ ᴀɴʏ ᴀᴄᴛɪᴠᴇ ᴘʀᴇᴍɪᴜᴍ ᴘʟᴀɴs, ɪꜰ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴛᴀᴋᴇ ᴘʀᴇᴍɪᴜᴍ ᴛʜᴇɴ ᴄʟɪᴄᴋ ᴏɴ /plans ᴛᴏ ᴋɴᴏᴡ ᴀʙᴏᴜᴛ ᴛʜᴇ ᴘʟᴀɴs...</b>")
+        await message.reply_text(f"<b>आपने कोई प्रीमियम प्लान Buy नई किया...😒\n\nप्रीमियम प्लान Buy करने के लिऐ /plans पर क्लिक करें ‼️</b>")
 
 @Client.on_message(filters.command("add") & filters.user(ADMINS))
 async def give_premium_cmd_handler(client, message):
@@ -66,12 +66,12 @@ async def give_premium_cmd_handler(client, message):
             data = await db.get_user(user_id)
             expiry = data.get("expiry_time")
             expiry_str_in_ist = expiry.astimezone(pytz.timezone(TIMEZONE)).strftime("%d-%m-%Y %I:%M:%S %p")         
-            await message.reply_text(f"<b>#PREMIUM_ADDED\n\nUsᴇʀ : {user.mention} <code>[{user_id}]</code>\n\nVᴀʟɪᴅɪᴛʏ : <code>{time}</code>\n\nExᴘ Tɪᴍᴇ : <code>{expiry_str_in_ist}</code></b>", disable_web_page_preview=True)
+            await message.reply_text(f"<b>ᴘʀᴇᴍɪᴜᴍ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴀᴅᴅᴇᴅ ✅\n\nᴜꜱᴇʀ - {user.mention}\nʙᴜʏɪɴɢ ᴛɪᴍᴇ - {current_time}\nᴠᴀʟᴀᴅɪᴛʏ - {time}\nᴇxᴘɪʀᴇ ᴛɪᴍᴇ - {expiry_str_in_ist}\n\nᴘʀᴏᴄᴇꜱꜱɪɴɢ ᴄᴏᴍᴘʟᴇᴛᴇ 🎉</b>", disable_web_page_preview=True)
             try:
-                await client.send_message(chat_id=user_id, text=f"<b><i>Hᴇʏ Tʜᴇʀᴇ {user.mention} 👋</i>\n\nYᴏᴜʀ {time} Pʀᴇᴍɪᴜᴍ Sᴜʙꜱᴄʀɪᴘᴛɪᴏɴ Aᴅᴅᴇᴅ ✅\n\nYᴏᴜʀ Pʟᴀɴ Dᴇᴀᴛᴀɪʟꜱ ⚠️\n\nSᴜʙ ᴛɪᴍᴇ : <code>{current_time}</code>\n\nExᴘ ᴛɪᴍᴇ : <code>{expiry_str_in_ist}</code>\n\nFᴏʀ Aɴʏ Hᴇʟᴘ Cᴏɴᴛᴀᴄᴛ Aᴅᴍɪɴ @pirates_king_luffy</b>", disable_web_page_preview=True) 
+                await client.send_message(chat_id=user_id, text=f"<b>🎉 cᴏɴɢʀᴀᴛᴜʟᴀᴛɪᴏɴꜱ 🥳\n\nआपको प्रीमियम लिस्ट में ᴀᴅᴅ किया गया है...✅\nअब आप सभी प्रीमियम फ्यूचर का उपयोग कर सकते है...🎉\n\nᴡʜᴀᴛ ɪꜱ ᴘʀᴇᴍɪᴜᴍ ꜰᴜᴛᴜʀᴇ - <a href='https://graph.org/𝗠𝗼𝗻𝗸𝗲𝘆-𝗗-𝗟𝘂𝗳𝗳𝘆-12-14-3'>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a>\n\nʙᴜʏɪɴɢ ᴛɪᴍᴇ - {current_time}\nᴠᴀʟᴀᴅɪᴛʏ - {time}\nᴇxᴘɪʀᴇ ᴛɪᴍᴇ - {expiry_str_in_ist}\n\nᴀɴʏ ᴘʀᴏʙʟᴇᴍ / ʜᴇʟᴘ ᴄᴏɴᴛᴀᴄᴛ - <a href='https://t.me/Pirates_King_luffy'>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a></b>", disable_web_page_preview=True) 
             except:
                 pass
-            await client.send_message(PREMIUM_LOGS, text=f"<b>#PREMIUM_ADDED\n\nUsᴇʀ : {user.mention} <code>[{user_id}]</code>\n\nVᴀʟɪᴅɪᴛʏ : <code>{time}</code>\n\nExᴘ Tɪᴍᴇ : <code>{expiry_str_in_ist}</code></b>", disable_web_page_preview=True)                
+            await client.send_message(PREMIUM_LOGS, text=f"<b>ᴘʀᴇᴍɪᴜᴍ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴀᴅᴅᴇᴅ ✅\n\nᴜꜱᴇʀ - {user.mention}\nʙᴜʏɪɴɢ ᴛɪᴍᴇ - {current_time}\nᴠᴀʟᴀᴅɪᴛʏ - {time}\nᴇxᴘɪʀᴇ ᴛɪᴍᴇ - {expiry_str_in_ist}\n\nᴘʀᴏᴄᴇꜱꜱɪɴɢ ᴄᴏᴍᴘʟᴇᴛᴇ 🎉</b>", disable_web_page_preview=True)                
         else:
             await message.reply_text("<i>Iɴᴠᴀʟɪᴅ Tɪᴍᴇ Fᴏʀᴍᴀᴛ...</i>\n\n1 day\n1 hour\n1 min\n1 month\n1 year")
     else:
