@@ -1227,7 +1227,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton('🎁 ᴄʜᴇᴄᴋ ᴘʟᴀɴs 🎁', callback_data='check'), 
         ],[
-            InlineKeyboardButton('ʜᴏᴡ ɪᴛs ᴡᴏʀᴋ', url="https://t.me/"),
+            InlineKeyboardButton('ʜᴏᴡ ɪᴛs ᴡᴏʀᴋ', url="https://graph.org/𝗠𝗼𝗻𝗸𝗲𝘆-𝗗-𝗟𝘂𝗳𝗳𝘆-12-14-3"),
             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='start')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -1283,7 +1283,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('sᴇɴᴅ sᴄʀᴇᴇɴsʜᴏᴛ', url="https://t.me/pirates_king_luffy"), 
             InlineKeyboardButton('ᴄʜᴇᴄᴋ ᴘʟᴀɴs', callback_data='check')
         ],[
-            InlineKeyboardButton('ʜᴏᴡ ɪᴛs ᴡᴏʀᴋ', url="https://t.me/"),
+            InlineKeyboardButton('ʜᴏᴡ ɪᴛs ᴡᴏʀᴋ', url="https://graph.org/𝗠𝗼𝗻𝗸𝗲𝘆-𝗗-𝗟𝘂𝗳𝗳𝘆-12-14-3"),
             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='start')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -1311,7 +1311,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('sᴇɴᴅ sᴄʀᴇᴇɴsʜᴏᴛ', url="https://t.me/pirates_king_luffy"), 
             InlineKeyboardButton('ᴄʜᴇᴄᴋ ᴘʟᴀɴs', callback_data='check')
         ],[
-            InlineKeyboardButton('ʜᴏᴡ ɪᴛs ᴡᴏʀᴋ', url="https://t.me/"),
+            InlineKeyboardButton('ʜᴏᴡ ɪᴛs ᴡᴏʀᴋ', url="https://graph.org/𝗠𝗼𝗻𝗸𝗲𝘆-𝗗-𝗟𝘂𝗳𝗳𝘆-12-14-3"),
             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='start')             
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
