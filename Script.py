@@ -17,7 +17,7 @@ Hᴇʀᴇ Is Tʜᴇ Hᴇʟᴘ Fᴏʀ Mʏ Cᴏᴍᴍᴀɴᴅs.</b>"""
 
 Tʜɪs Bᴏᴛ ʜᴀs Lᴀᴛᴇsᴛ ᴀɴᴅ Aᴅᴠᴀɴᴄᴇᴅ Fᴇᴀᴛᴜʀᴇs⚡️
 
-Where is source code? - <a href='https://t.me/https://graph.org/file/c097b4ca7d563b79c69ed.gif'>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a></b>"""
+Where is source code ? - <a href='https://graph.org/file/c097b4ca7d563b79c69ed.gif'>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a></b>"""
 
 
     KUSHAL_TXT = """ 
