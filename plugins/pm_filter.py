@@ -683,7 +683,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
           ]]
                         await client.send_message(
                             chat_id=query.from_user.id,
-                            text="<b>हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 15 second Broo 🥲\n\nAfter Get Unlimited Movies...✅</b>",
+                            text="<b>हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 10 second Broo 🥲\n\nAfter Get Unlimited Movies...✅</b>",
                             protect_content=True if ident == 'checksubp' else False,
                             disable_web_page_preview=True,
                             parse_mode=enums.ParseMode.HTML,
@@ -738,7 +738,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             elif is_over == 'fsub':
                 return await query.answer("Hᴇʏ, Yᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴊᴏɪɴᴇᴅ ɪɴ ᴍʏ ʙᴀᴄᴋ ᴜᴘ ᴄʜᴀɴɴᴇʟ. Cʜᴇᴄᴋ ᴍʏ PM ᴛᴏ ᴊᴏɪɴ ᴀɴᴅ ɢᴇᴛ ғɪʟᴇs !", show_alert=True)
             elif is_over == 'verify':
-                return await query.answer("हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 15 second Broo 🥲\n\nAfter Get Unlimited Movies...✅", show_alert=True)
+                return await query.answer("हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 10 second Broo 🥲\n\nAfter Get Unlimited Movies...✅", show_alert=True)
             else:
                 return await query.answer(f"Eʀʀᴏʀ: {is_over}", show_alert=True)
         files_ = await get_file_details(file_id)
