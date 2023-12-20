@@ -303,7 +303,7 @@ async def start(client, message):
             InlineKeyboardButton("🔥 ᴜɴʟᴏᴄᴋ ᴘʀᴇᴍɪᴜᴍ 🔥", url="https://t.me/TheHappyHourBot?start=TheHappyHour")
           ]]
                 await message.reply_text(
-                    text="<b>हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 15 second Friends 🥲\n\nAfter Get Unlimited Movies...✅</b>",
+                    text="<b>हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 10 second Friends 🥲\n\nAfter Get Unlimited Movies...✅</b>",
                     protect_content=True if PROTECT_CONTENT else False,
                     reply_markup=InlineKeyboardMarkup(btn)
                 )
@@ -370,7 +370,7 @@ async def start(client, message):
             InlineKeyboardButton("🔥 ᴜɴʟᴏᴄᴋ ᴘʀᴇᴍɪᴜᴍ 🔥", url="https://t.me/TheHappyHourBOT?start=TheHappyHour")
           ]]
         await message.reply_text(
-            text="<b>हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 15 second Friends 🥲\n\nAfter Get Unlimited Movies...✅</b>",
+            text="<b>हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 10 second Friends 🥲\n\nAfter Get Unlimited Movies...✅</b>",
             protect_content=True if PROTECT_CONTENT else False,
             reply_markup=InlineKeyboardMarkup(btn)
         )
