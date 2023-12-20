@@ -42,8 +42,8 @@ SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(
 NO_RESULTS_MSG = is_enabled((environ.get("NO_RESULTS_MSG", 'False')), False)
 
 # MongoDB information
-DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://Isjsjsjjsjsk:nTO7SePDmCnKiswE@cluster0.hvj4dgv.mongodb.net/?retryWrites=true&w=majority")
-DATABASE_NAME = environ.get('DATABASE_NAME', "GOJOSATURO")
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://thehappyhour009:#Scm20006#@cluster0.e5xoof7.mongodb.net/?retryWrites=true&w=majority")
+DATABASE_NAME = environ.get('DATABASE_NAME', "MINATO")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
 premium = environ.get('PREMIUM_LOGS', 'log channel id')
@@ -59,9 +59,9 @@ IS_STREAM = bool(STREAM_BIN and STREAM_URL)
 IS_VERIFY = is_enabled((environ.get('IS_VERIFY', 'True')), False)
 HOW_TO_VERIFY = environ.get('HOW_TO_VERIFY', "https://t.me/The_Happy_Hour_Hindi/1393")
 VERIFY2_URL = environ.get('VERIFY2_URL', "omnifly.in.net")
-VERIFY2_API = environ.get('VERIFY2_API', "3cdac0a6b219bf69c276f11660dcb6f5896b45b1")
+VERIFY2_API = environ.get('VERIFY2_API', "11894e6ee90239d751aea02338bfe650cce27d1c")
 SHORTLINK_URL = environ.get('SHORTLINK_URL', 'omnifly.in.net')
-SHORTLINK_API = environ.get('SHORTLINK_API', '3cdac0a6b219bf69c276f11660dcb6f5896b45b1')
+SHORTLINK_API = environ.get('SHORTLINK_API', '11894e6ee90239d751aea02338bfe650cce27d1c')
 IS_SHORTLINK = is_enabled((environ.get('IS_SHORTLINK', 'False')), False)
 DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '-1001966591245').split()]
 MAX_B_TN = environ.get("MAX_B_TN", "8")
