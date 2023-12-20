@@ -243,7 +243,7 @@ async def next_page(bot, query):
             )
             
     btn.insert(0, [
-        InlineKeyboardButton("⚡ Hᴏᴡ Tᴏ Vᴇʀɪꜰʏ ⚡", url=f"https://t.me/The_Happy_Hour_Hindi/1354")
+        InlineKeyboardButton("⚡ Hᴏᴡ Tᴏ Vᴇʀɪꜰʏ ⚡", url=f"https://t.me/The_Happy_Hour_Hindi/1554")
     ])
     try:
         await query.edit_message_reply_markup(
@@ -332,7 +332,7 @@ async def language_check(bot, query):
             ]
 
         btn.insert(0, [
-            InlineKeyboardButton("⚡ Hᴏᴡ Tᴏ Vᴇʀɪꜰʏ ⚡", url=f"https://t.me/The_Happy_Hour_Hindi/1354")
+            InlineKeyboardButton("⚡ Hᴏᴡ Tᴏ Vᴇʀɪꜰʏ ⚡", url=f"https://t.me/The_Happy_Hour_Hindi/1554")
         ])
 
         if offset != "":
@@ -1771,7 +1771,7 @@ async def auto_filter(client, msg, spoll=False):
         ]
 
     btn.insert(0, [
-        InlineKeyboardButton("⚡ Hᴏᴡ Tᴏ Vᴇʀɪꜰʏ ⚡", url=f"https://t.me/The_Happy_Hour_Hindi/1354")
+        InlineKeyboardButton("⚡ Hᴏᴡ Tᴏ Vᴇʀɪꜰʏ ⚡", url=f"https://t.me/The_Happy_Hour_Hindi/1554")
     ])
 
     if offset != "":
