@@ -1,12 +1,12 @@
 if [ -z $UPSTREAM_REPO ]
 then
   echo "Cloning main Repository"
-  git clone https://github.com/iwhiwh/Delete-URL-Bot /Delete-URL-Bot
+  git clone https://github.com/MasterJiraya005/Letest-Premium-Bot /Letest-Premium-Bot
 else
   echo "Cloning Custom Repo from $UPSTREAM_REPO "
-  git clone $UPSTREAM_REPO /Delete-URL-Bot
+  git clone $UPSTREAM_REPO /Letest-Premium-Bot
 fi
-cd /Delete-URL-Bot
+cd /Letest-Premium-Bot
 pip3 install -U -r requirements.txt
-echo "Starting DQ-The-File-Donor...."
+echo "✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅"
 python3 bot.py
