@@ -683,13 +683,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
           ]]
                         await client.send_message(
                             chat_id=query.from_user.id,
-                            text="<b>हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 10 second Broo 🥲\n\nAfter Get Unlimited Movies...✅</b>",
+                            text="<b>हर दो दिन में 10 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 10 second Broo 🥲\n\nAfter Get Unlimited Movies...✅</b>",
                             protect_content=True if ident == 'checksubp' else False,
                             disable_web_page_preview=True,
                             parse_mode=enums.ParseMode.HTML,
                             reply_markup=InlineKeyboardMarkup(btn)
                         )
-                        return await query.answer("हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 10 second Broo 🥲\n\nAfter Get Unlimited Movies...✅", show_alert=True)
+                        return await query.answer("हर दो दिन में 10 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 10 second Broo 🥲\n\nAfter Get Unlimited Movies...✅", show_alert=True)
                     else:
                         await client.send_cached_media(
                             chat_id=query.from_user.id,
@@ -738,7 +738,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             elif is_over == 'fsub':
                 return await query.answer("Hᴇʏ, Yᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴊᴏɪɴᴇᴅ ɪɴ ᴍʏ ʙᴀᴄᴋ ᴜᴘ ᴄʜᴀɴɴᴇʟ. Cʜᴇᴄᴋ ᴍʏ PM ᴛᴏ ᴊᴏɪɴ ᴀɴᴅ ɢᴇᴛ ғɪʟᴇs !", show_alert=True)
             elif is_over == 'verify':
-                return await query.answer("हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 10 second Broo 🥲\n\nAfter Get Unlimited Movies...✅", show_alert=True)
+                return await query.answer("हर दो दिन में 10 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 10 second Broo 🥲\n\nAfter Get Unlimited Movies...✅", show_alert=True)
             else:
                 return await query.answer(f"Eʀʀᴏʀ: {is_over}", show_alert=True)
         files_ = await get_file_details(file_id)
@@ -768,7 +768,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
           ]]
             await client.send_message(
                 chat_id=query.from_user.id,
-                text="<b>हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 10 second Broo 🥲\n\nAfter Get Unlimited Movies...✅</b>",
+                text="<b>हर दो दिन में 10 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 10 second Broo 🥲\n\nAfter Get Unlimited Movies...✅</b>",
                 protect_content=True if ident == 'checksubp' else False,
                 disable_web_page_preview=True,
                 parse_mode=enums.ParseMode.HTML,
@@ -814,7 +814,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif is_over == 'fsub':
             return await query.answer("Hᴇʏ, Yᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴊᴏɪɴᴇᴅ ɪɴ ᴍʏ ʙᴀᴄᴋ ᴜᴘ ᴄʜᴀɴɴᴇʟ. Cʜᴇᴄᴋ ᴍʏ PM ᴛᴏ ᴊᴏɪɴ ᴀɴᴅ ɢᴇᴛ ғɪʟᴇs !", show_alert=True)
         elif is_over == 'verify':
-            return await query.answer("हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 10 second Broo 🥲\n\nAfter Get Unlimited Movies...✅", show_alert=True)
+            return await query.answer("हर दो दिन में 10 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 10 second Broo 🥲\n\nAfter Get Unlimited Movies...✅", show_alert=True)
         else:
             return await query.answer(f"Eʀʀᴏʀ: {is_over}", show_alert=True)
 
@@ -1271,7 +1271,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "plan1":
         buttons = [[
-            InlineKeyboardButton('sᴇɴᴅ sᴄʀᴇᴇɴsʜᴏᴛ', url="https://t.me/pirates_king_luffy"), 
+            InlineKeyboardButton('sᴇɴᴅ sᴄʀᴇᴇɴsʜᴏᴛ', url="https://t.me/Master_Jiraya_Bot"), 
             InlineKeyboardButton('ᴄʜᴇᴄᴋ ᴘʟᴀɴs', callback_data='check')
         ],[
             InlineKeyboardButton('ʜᴏᴡ ɪᴛs ᴡᴏʀᴋ', url="https://graph.org/𝗠𝗼𝗻𝗸𝗲𝘆-𝗗-𝗟𝘂𝗳𝗳𝘆-12-14-3"),
@@ -1299,7 +1299,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ) 
     elif query.data == "plan2":
         buttons = [[
-            InlineKeyboardButton('sᴇɴᴅ sᴄʀᴇᴇɴsʜᴏᴛ', url="https://t.me/pirates_king_luffy"), 
+            InlineKeyboardButton('sᴇɴᴅ sᴄʀᴇᴇɴsʜᴏᴛ', url="https://t.me/Master_Jiraya_Bot"), 
             InlineKeyboardButton('ᴄʜᴇᴄᴋ ᴘʟᴀɴs', callback_data='check')
         ],[
             InlineKeyboardButton('ʜᴏᴡ ɪᴛs ᴡᴏʀᴋ', url="https://graph.org/𝗠𝗼𝗻𝗸𝗲𝘆-𝗗-𝗟𝘂𝗳𝗳𝘆-12-14-3"),
@@ -1327,7 +1327,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ) 
     elif query.data == "plan3":
         buttons = [[
-            InlineKeyboardButton('sᴇɴᴅ sᴄʀᴇᴇɴsʜᴏᴛ', url="https://t.me/pirates_king_luffy"), 
+            InlineKeyboardButton('sᴇɴᴅ sᴄʀᴇᴇɴsʜᴏᴛ', url="https://t.me/Master_Jiraya_Bot"), 
             InlineKeyboardButton('ᴄʜᴇᴄᴋ ᴘʟᴀɴs', callback_data='check')
         ],[
             InlineKeyboardButton('⇋ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ ⇋', callback_data='start')
@@ -1456,20 +1456,20 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     text=f"Usᴇʀ ID: {user_id}\n\nUsᴇʀ Nᴀᴍᴇ: {username} 𝐅𝐢𝐥𝐞 𝐍𝐚𝐦𝐞: {fileName}",
                     quote=True,
                     disable_web_page_preview=True,
-                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Fast Download ⚡", url=stream_link),
-                                                        InlineKeyboardButton('🎥 Watch online', url=page_link)]]))
+                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 ᴅᴏᴡɴʟᴏᴅ 📥", url=stream_link),
+                                                        InlineKeyboardButton('🖥️ ꜱᴛʀᴇᴇᴍ 🖥️', url=page_link)]]))
                 await query.message.reply_text(
                     text="<b>Sᴛʀᴇᴀᴍ Lɪɴᴋ Gᴇɴᴇʀᴀᴛᴇᴅ...😁</b>",
                     quote=True,
                     disable_web_page_preview=True,
-                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Fast Download ⚡", url=stream_link),
-                                                        InlineKeyboardButton('🎥 Watch online', url=page_link)]]))
+                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 ᴅᴏᴡɴʟᴏᴅ 📥", url=stream_link),
+                                                        InlineKeyboardButton('🖥️ ꜱᴛʀᴇᴇᴍ 🖥️', url=page_link)]]))
             except Exception as e:
                 print(e)  # print the error message
                 await query.answer(f"☣something went wrong sweetheart\n\n{e}", show_alert=True)
                 return
         else:
-            await query.answer("This Is only for premium users", show_alert=True)
+            await query.answer("ये सिर्फ प्रीमियम ᴜꜱᴇʀ के लिए हैं....😒", show_alert=True)
             
     elif query.data == "coct":
         buttons = [[
@@ -1584,7 +1584,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "owner_info":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="start"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="t.me/Master_Jiraya")
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="t.me/Master_Jiraya_Bot")
                   ]]
             await client.edit_message_media(
                 query.message.chat.id, 
