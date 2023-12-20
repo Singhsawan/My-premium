@@ -181,7 +181,6 @@ async def next_page(bot, query):
                 btn.append(
                     [InlineKeyboardButton("⌫ 𝐁𝐀𝐂𝐊", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"{math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}", callback_data="pages")]
                 )
-                btn.append([InlineKeyboardButton("🔥 ᴜɴʟᴏᴄᴋ ᴘʀᴇᴍɪᴜᴍ 🔥", url="https://t.me/TheHappyHourBot?start=TheHappyHour")])
             elif off_set is None:
                 btn.append([InlineKeyboardButton(f"{math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}", callback_data="pages"), InlineKeyboardButton("𝐍𝐄𝐗𝐓 ➪", callback_data=f"next_{req}_{key}_{n_offset}")])
                 
@@ -193,7 +192,6 @@ async def next_page(bot, query):
                         InlineKeyboardButton("𝐍𝐄𝐗𝐓 ➪", callback_data=f"next_{req}_{key}_{n_offset}")
                     ],
                 )
-                btn.append([InlineKeyboardButton("🔥 ᴜɴʟᴏᴄᴋ ᴘʀᴇᴍɪᴜᴍ 🔥", url="https://t.me/TheHappyHourBot?start=TheHappyHour")])
                
         else:
             if 0 < offset <= int(MAX_B_TN):
@@ -205,9 +203,7 @@ async def next_page(bot, query):
             if n_offset == 0:
                 btn.append(
                     [InlineKeyboardButton("⌫ 𝐁𝐀𝐂𝐊", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"{math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}", callback_data="pages")]
-                )
-                btn.append([InlineKeyboardButton("🔥 ᴜɴʟᴏᴄᴋ ᴘʀᴇᴍɪᴜᴍ 🔥", url="https://t.me/TheHappyHourBot?start=TheHappyHour")])
-                
+                )               
             elif off_set is None:
                 btn.append([InlineKeyboardButton(f"{math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}", callback_data="pages"), InlineKeyboardButton("𝐍𝐄𝐗𝐓 ➪", callback_data=f"next_{req}_{key}_{n_offset}")])
             
@@ -220,7 +216,6 @@ async def next_page(bot, query):
                         InlineKeyboardButton("𝐍𝐄𝐗𝐓 ➪", callback_data=f"next_{req}_{key}_{n_offset}")
                     ],
                 )
-                btn.append([InlineKeyboardButton("🔥 ᴜɴʟᴏᴄᴋ ᴘʀᴇᴍɪᴜᴍ 🔥", url="https://t.me/TheHappyHourBot?start=TheHappyHour")])
     
     except KeyError:
         await save_group_settings(query.message.chat.id, 'max_btn', True)
@@ -246,10 +241,9 @@ async def next_page(bot, query):
                     InlineKeyboardButton("𝐍𝐄𝐗𝐓 ➪", callback_data=f"next_{req}_{key}_{n_offset}")
                 ],
             )
-            btn.append([InlineKeyboardButton("🔥 ᴜɴʟᴏᴄᴋ ᴘʀᴇᴍɪᴜᴍ 🔥", url="https://t.me/TheHappyHourBot?start=TheHappyHour")])
             
     btn.insert(0, [
-        InlineKeyboardButton("⚡ Hᴏᴡ Tᴏ Vᴇʀɪꜰʏ ⚡", url=f"https://t.me/The_Happy_Hour_Hindi/1393")
+        InlineKeyboardButton("⚡ Hᴏᴡ Tᴏ Vᴇʀɪꜰʏ ⚡", url=f"https://t.me/The_Happy_Hour_Hindi/1354")
     ])
     try:
         await query.edit_message_reply_markup(
@@ -338,7 +332,7 @@ async def language_check(bot, query):
             ]
 
         btn.insert(0, [
-            InlineKeyboardButton("⚡ Hᴏᴡ Tᴏ Vᴇʀɪꜰʏ ⚡", url=f"https://t.me/The_Happy_Hour_Hindi/1393")
+            InlineKeyboardButton("⚡ Hᴏᴡ Tᴏ Vᴇʀɪꜰʏ ⚡", url=f"https://t.me/The_Happy_Hour_Hindi/1354")
         ])
 
         if offset != "":
@@ -350,20 +344,17 @@ async def language_check(bot, query):
                     btn.append(
                         [InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="𝐍𝐄𝐗𝐓 ➪",callback_data=f"next_{req}_{key}_{offset}")]
                     )
-                    btn.append([InlineKeyboardButton("🔥 ᴜɴʟᴏᴄᴋ ᴘʀᴇᴍɪᴜᴍ 🔥", url="https://t.me/TheHappyHourBot?start=TheHappyHour")])
 
                 else:
                     btn.append(
                         [InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/int(MAX_B_TN))}",callback_data="pages"), InlineKeyboardButton(text="𝐍𝐄𝐗𝐓 ➪",callback_data=f"next_{req}_{key}_{offset}")]
                     )
-                    btn.append([InlineKeyboardButton("🔥 ᴜɴʟᴏᴄᴋ ᴘʀᴇᴍɪᴜᴍ 🔥", url="https://t.me/TheHappyHourBot?start=TheHappyHour")])
                    
             except KeyError:
                 await save_group_settings(query.message.chat.id, 'max_btn', True)
                 btn.append(
                     [InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="𝐍𝐄𝐗𝐓 ➪",callback_data=f"next_{req}_{key}_{offset}")]
                 )
-                btn.append([InlineKeyboardButton("🔥 ᴜɴʟᴏᴄᴋ ᴘʀᴇᴍɪᴜᴍ 🔥", url="https://t.me/TheHappyHourBot?start=TheHappyHour")])
         try:
             await query.edit_message_reply_markup(
                 reply_markup=InlineKeyboardMarkup(btn)
@@ -698,7 +689,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                             parse_mode=enums.ParseMode.HTML,
                             reply_markup=InlineKeyboardMarkup(btn)
                         )
-                        return await query.answer("हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 15 second Broo 🥲\n\nAfter Get Unlimited Movies...✅", show_alert=True)
+                        return await query.answer("हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 10 second Broo 🥲\n\nAfter Get Unlimited Movies...✅", show_alert=True)
                     else:
                         await client.send_cached_media(
                             chat_id=query.from_user.id,
@@ -777,7 +768,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
           ]]
             await client.send_message(
                 chat_id=query.from_user.id,
-                text="<b>हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 15 second Broo 🥲\n\nAfter Get Unlimited Movies...✅</b>",
+                text="<b>हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 10 second Broo 🥲\n\nAfter Get Unlimited Movies...✅</b>",
                 protect_content=True if ident == 'checksubp' else False,
                 disable_web_page_preview=True,
                 parse_mode=enums.ParseMode.HTML,
@@ -823,7 +814,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif is_over == 'fsub':
             return await query.answer("Hᴇʏ, Yᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴊᴏɪɴᴇᴅ ɪɴ ᴍʏ ʙᴀᴄᴋ ᴜᴘ ᴄʜᴀɴɴᴇʟ. Cʜᴇᴄᴋ ᴍʏ PM ᴛᴏ ᴊᴏɪɴ ᴀɴᴅ ɢᴇᴛ ғɪʟᴇs !", show_alert=True)
         elif is_over == 'verify':
-            return await query.answer("हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 15 second Broo 🥲\n\nAfter Get Unlimited Movies...✅", show_alert=True)
+            return await query.answer("हर दो दिन में 15 सेकंड का वेरिफिकेशन \nजरूरी हे !\n\nJust 10 second Broo 🥲\n\nAfter Get Unlimited Movies...✅", show_alert=True)
         else:
             return await query.answer(f"Eʀʀᴏʀ: {is_over}", show_alert=True)
 
@@ -1780,7 +1771,7 @@ async def auto_filter(client, msg, spoll=False):
         ]
 
     btn.insert(0, [
-        InlineKeyboardButton("⚡ Hᴏᴡ Tᴏ Vᴇʀɪꜰʏ ⚡", url=f"https://t.me/The_Happy_Hour_Hindi/1393")
+        InlineKeyboardButton("⚡ Hᴏᴡ Tᴏ Vᴇʀɪꜰʏ ⚡", url=f"https://t.me/The_Happy_Hour_Hindi/1354")
     ])
 
     if offset != "":
@@ -1792,19 +1783,16 @@ async def auto_filter(client, msg, spoll=False):
                 btn.append(
                     [InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="𝐍𝐄𝐗𝐓 ➪",callback_data=f"next_{req}_{key}_{offset}")]
                 )
-                btn.append([InlineKeyboardButton("🔥 ᴜɴʟᴏᴄᴋ ᴘʀᴇᴍɪᴜᴍ 🔥", url="https://t.me/TheHappyHourBot?start=TheHappyHour")])
             else:
                 btn.append(
                     [InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/int(MAX_B_TN))}",callback_data="pages"), InlineKeyboardButton(text="𝐍𝐄𝐗𝐓 ➪",callback_data=f"next_{req}_{key}_{offset}")]
                 )
-                btn.append([InlineKeyboardButton("🔥 ᴜɴʟᴏᴄᴋ ᴘʀᴇᴍɪᴜᴍ 🔥", url="https://t.me/TheHappyHourBot?start=TheHappyHour")])
     
         except KeyError:
             await save_group_settings(message.chat.id, 'max_btn', True)
             btn.append(
                 [InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="𝐍𝐄𝐗𝐓 ➪",callback_data=f"next_{req}_{key}_{offset}")]
             )
-            btn.append([InlineKeyboardButton("🔥 ᴜɴʟᴏᴄᴋ ᴘʀᴇᴍɪᴜᴍ 🔥", url="https://t.me/TheHappyHourBot?start=TheHappyHour")])
     
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
