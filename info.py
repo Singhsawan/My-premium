@@ -13,9 +13,9 @@ def is_enabled(value, default):
 
 # Bot information
 SESSION = environ.get('SESSION', 'Media_search')
-API_ID = int(environ['API_ID'])
-API_HASH = environ['API_HASH']
-BOT_TOKEN = environ['BOT_TOKEN']
+API_ID = int(environ.get('API_ID', '24579842'))
+API_HASH = environ.get('API_HASH', 'ec6105bf1a02c98f837300546dc341d1')
+BOT_TOKEN = environ.get('BOT_TOKEN', "6306810196:AAGEl-DEJV1n_EtlMZR7BTMsFLYgbu0ceJs")
 TIMEZONE = environ.get("TIMEZONE", "Asia/Kolkata")
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 150))
@@ -58,10 +58,10 @@ IS_STREAM = bool(STREAM_BIN and STREAM_URL)
 # Others
 IS_VERIFY = is_enabled((environ.get('IS_VERIFY', 'True')), False)
 HOW_TO_VERIFY = environ.get('HOW_TO_VERIFY', "https://t.me/The_Happy_Hour_Hindi/1393")
-VERIFY2_URL = environ.get('VERIFY2_URL', "omnifly.in.net")
-VERIFY2_API = environ.get('VERIFY2_API', "3cdac0a6b219bf69c276f11660dcb6f5896b45b1")
-SHORTLINK_URL = environ.get('SHORTLINK_URL', 'omnifly.in.net')
-SHORTLINK_API = environ.get('SHORTLINK_API', '3cdac0a6b219bf69c276f11660dcb6f5896b45b1')
+VERIFY2_URL = environ.get('VERIFY2_URL', "moneykamalo.com")
+VERIFY2_API = environ.get('VERIFY2_API', "31d1cadfe3f65d61d3d29d8ac9ddbaa129500544")
+SHORTLINK_URL = environ.get('SHORTLINK_URL', 'moneykamalo.com')
+SHORTLINK_API = environ.get('SHORTLINK_API', '31d1cadfe3f65d61d3d29d8ac9ddbaa129500544')
 IS_SHORTLINK = is_enabled((environ.get('IS_SHORTLINK', 'False')), False)
 DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '-1001966591245').split()]
 MAX_B_TN = environ.get("MAX_B_TN", "8")
